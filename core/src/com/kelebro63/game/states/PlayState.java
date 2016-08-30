@@ -1,6 +1,7 @@
 package com.kelebro63.game.states;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.kelebro63.game.FlappyDemo;
 import com.kelebro63.game.sprites.Bird;
@@ -11,11 +12,13 @@ import com.kelebro63.game.sprites.Bird;
 public class PlayState  extends State{
 
     private Bird bird;
+    private Texture bg;
 
     public PlayState(GameStateManager gsm) {
         super(gsm);
         bird = new Bird(50, 300);
         camera.setToOrtho(false, FlappyDemo.WIDTH / 2, FlappyDemo.HEIGHT / 2);
+        bg = new Texture("bg.png");
     }
 
     @Override
@@ -35,6 +38,7 @@ public class PlayState  extends State{
     public void render(SpriteBatch sb) {
         sb.setProjectionMatrix(camera.combined);
         sb.begin();
+        sb.draw(bg, camera.position.x - (camera.viewportWidth / 2), 0);
         sb.draw(bird.getBird(), bird.getPosition().x, bird.getPosition().y);
         sb.end();
     }

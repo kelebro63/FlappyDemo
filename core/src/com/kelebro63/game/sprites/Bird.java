@@ -3,6 +3,7 @@ package com.kelebro63.game.sprites;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector3;
 
+
 /**
  * Created by Bistrov Alexey on 30.08.2016.
  */
@@ -20,10 +21,11 @@ public class Bird {
     }
 
     public  void update(float dt) {
+        System.out.println("1 velosity.y =  " + velosity.y + ",  position.y =  " + position.y);
         velosity.add(0, GRAVITY, 0);
         velosity.scl(dt);
         position.add(0, velosity.y, 0);
-
+        System.out.println("2 velosity.y =  " + velosity.y + ",  position.y =  " + position.y);
         velosity.scl(1 / dt);
     }
 
@@ -33,5 +35,9 @@ public class Bird {
 
     public Texture getBird() {
         return bird;
+    }
+
+    public void jump() {
+     velosity.y = 250;
     }
 }

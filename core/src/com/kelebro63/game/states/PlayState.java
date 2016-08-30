@@ -1,5 +1,6 @@
 package com.kelebro63.game.states;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.kelebro63.game.FlappyDemo;
 import com.kelebro63.game.sprites.Bird;
@@ -19,11 +20,14 @@ public class PlayState  extends State{
 
     @Override
     protected void handleInput() {
-
+        if (Gdx.input.justTouched()) {
+            bird.jump();
+        }
     }
 
     @Override
     public void update(float dt) {
+        handleInput();
         bird.update(dt);
     }
 

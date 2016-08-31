@@ -9,6 +9,8 @@ import com.badlogic.gdx.math.Vector3;
  */
 public class Bird {
     public static final int GRAVITY = -15;
+    public static final int MOVEMENT = 100;
+
     private Vector3 position;
     private Vector3 velosity;
 
@@ -27,7 +29,7 @@ public class Bird {
         }
 
         velosity.scl(dt);
-        position.add(0, velosity.y, 0);
+        position.add(MOVEMENT * dt, velosity.y, 0);
         System.out.println("2 velosity.y =  " + velosity.y + ",  position.y =  " + position.y);
         if (position.y < 0) {
             position.y = 0;

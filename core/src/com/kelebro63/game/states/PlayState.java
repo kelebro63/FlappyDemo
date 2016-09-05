@@ -66,7 +66,7 @@ public class PlayState  extends State{
             }
 
             if (tube.collades(bird.getBounds())) {
-                gsm.set(new PlayState(gsm));
+                gsm.set(new GameOver(gsm));
             }
         }
 

@@ -20,7 +20,6 @@ public class PlayState  extends State{
 
     private Bird bird;
     private Texture bg;
-    private Tube tube;
     private Texture ground;
     private Vector2 groundPos1, groundPos2;
 
@@ -67,7 +66,7 @@ public class PlayState  extends State{
             }
 
             if (tube.collades(bird.getBounds())) {
-                gsm.set(new MenuState(gsm));
+                gsm.set(new PlayState(gsm));
             }
         }
 
